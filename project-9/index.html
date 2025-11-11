@@ -13,135 +13,14 @@
   <body>
     <div id="root"></div>
 
-    <script type="text/babel">
-      const { useState } = React;
-
-      function Header() {
-        return (
-          <header className="header">
-            <h1>Project 9 — React Core Concepts</h1>
-          </header>
-        );
-      }
-
-      function Button({ text, color }) {
-        const [count, setCount] = useState(0);
-        const handleClick = () => setCount(count + 1);
-        return (
-          <button
-            onClick={handleClick}
-            className="btn"
-            style={{ backgroundColor: color || 'steelblue' }}
-          >
-            {text || 'Click Me'} — Clicked {count} times
-          </button>
-        );
-      }
-
-      function Display({ count }) {
-        return <div className="display">Current count: {count}</div>;
-      }
-
-      function Counter() {
-        const [count, setCount] = useState(0);
-        return (
-          <section className="card">
-            <h2>Counter (State + Composition)</h2>
-            <Display count={count} />
-            <div className="row">
-              <button className="btn ghost" onClick={() => setCount(count - 1)}>-</button>
-              <button className="btn ghost" onClick={() => setCount(count + 1)}>+</button>
-              <button className="btn ghost" onClick={() => setCount(0)}>Reset</button>
-            </div>
-          </section>
-        );
-      }
-
-      function RegistrationForm() {
-        const [formData, setFormData] = useState({ name: '', email: '', age: '' });
-        const handleChange = (e) => {
-          const { name, value } = e.target;
-          setFormData((prev) => ({ ...prev, [name]: value }));
-        };
-        const handleSubmit = (e) => {
-          e.preventDefault();
-          alert(
-            `✅ Form Submitted!\nName: ${formData.name}\nEmail: ${formData.email}\nAge: ${formData.age}`
-          );
-        };
-        return (
-          <section className="card">
-            <h2>Controlled Form</h2>
-            <form onSubmit={handleSubmit} className="form">
-              <label>
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  required
-                />
-              </label>
-              <label>
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  required
-                />
-              </label>
-              <label>
-                Age
-                <input
-                  type="number"
-                  name="age"
-                  value={formData.age}
-                  onChange={handleChange}
-                  min="1"
-                  max="120"
-                  placeholder="Enter your age"
-                  required
-                />
-              </label>
-              <button type="submit" className="btn submit">Submit</button>
-            </form>
-
-            <div className="preview">
-              <h3>Current Form Data</h3>
-              <pre>{JSON.stringify(formData, null, 2)}</pre>
-            </div>
-          </section>
-        );
-      }
-
-      function App() {
-        return (
-          <main className="container">
-            <Header />
-
-            <section className="card">
-              <h2>Buttons (Components, Props, State, Events)</h2>
-              <div className="row">
-                <Button text="Login" color="#0d6efd" />
-                <Button text="Logout" color="#dc3545" />
-                <Button text="Cancel" />
-              </div>
-            </section>
-
-            <Counter />
-            <RegistrationForm />
-          </main>
-        );
-      }
-
-      const root = ReactDOM.createRoot(document.getElementById('root'));
-      root.render(<App />);
-    </script>
+    <!-- Split JSX files compiled by Babel Standalone at runtime -->
+    <script type="text/babel" src="./Header.jsx"></script>
+    <script type="text/babel" src="./Button.jsx"></script>
+    <script type="text/babel" src="./Display.jsx"></script>
+    <script type="text/babel" src="./Counter.jsx"></script>
+    <script type="text/babel" src="./RegistrationForm.jsx"></script>
+    <script type="text/babel" src="./App.jsx"></script>
+    <script type="text/babel" src="./main.jsx"></script>
     <script src="./script.js"></script>
   </body>
   </html>
