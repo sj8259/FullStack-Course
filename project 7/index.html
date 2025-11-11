@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Project 7 — Code Breaker: The Array Heist</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<header class="header">
+			<h1>Code Breaker — The Array Heist</h1>
+			<p class="sub">Insert, delete, and search patterns to crack the vault.</p>
+		</header>
+
+		<main class="container">
+			<section class="board">
+				<div id="array" class="array"></div>
+				<div class="legend">
+					<span class="badge">Empty</span>
+					<span class="badge badge-insert">Insert</span>
+					<span class="badge badge-delete">Delete</span>
+					<span class="badge badge-scan">Scan</span>
+					<span class="badge badge-hit">Match</span>
+				</div>
+			</section>
+
+			<section class="controls">
+				<div class="panel">
+					<h2>Operations</h2>
+					<div class="row">
+						<label>
+							<span>Index</span>
+							<input id="indexInput" type="number" min="0" max="9" placeholder="0-9" />
+						</label>
+						<label>
+							<span>Value</span>
+							<input id="valueInput" type="number" min="0" max="9" placeholder="0-9" />
+						</label>
+						<button id="insertBtn" class="btn btn-primary">Insert at Index</button>
+					</div>
+					<div class="row">
+						<label>
+							<span>Index</span>
+							<input id="deleteIndexInput" type="number" min="0" max="9" placeholder="0-9" />
+						</label>
+						<button id="deleteBtn" class="btn btn-danger">Delete at Index</button>
+					</div>
+					<div class="row">
+						<label class="grow">
+							<span>Pattern (e.g., 2,1,4)</span>
+							<input id="patternInput" type="text" placeholder="comma-separated digits" />
+						</label>
+						<button id="searchBtn" class="btn btn-accent">Search Pattern</button>
+					</div>
+					<div class="row">
+						<button id="resetBtn" class="btn">Reset</button>
+						<button id="shuffleBtn" class="btn">Random Fill</button>
+						<button id="hintBtn" class="btn">Show Hint</button>
+					</div>
+				</div>
+
+				<div class="panel">
+					<h2>Challenge</h2>
+					<p id="challengeText" class="muted">Secret pattern: <strong id="secretPattern"></strong></p>
+					<div class="row">
+						<label>
+							<span>Time Attack</span>
+							<select id="timerSelect">
+								<option value="off">Off</option>
+								<option value="60">60s</option>
+								<option value="120">120s</option>
+							</select>
+						</label>
+						<div id="timer" class="timer hidden">00:00</div>
+						<button id="startBtn" class="btn btn-primary">Start</button>
+						<button id="stopBtn" class="btn btn-danger">Stop</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="feedback">
+				<div id="message" class="message">Welcome, agent. Prepare to breach.</div>
+			</section>
+		</main>
+
+		<script src="./script.js"></script>
+	</body>
+</html>
+
+
